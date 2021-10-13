@@ -21,7 +21,7 @@
         $ejecutar = mysqli_query($conexion, $sql);
         $check_email = mysqli_num_rows($ejecutar);
         if ($check_email == 1) {
-            echo   "El correo se encuentra registrado";
+            echo   "Este correo ya se encuentra en uso";
             exit();
         }else{
 
@@ -29,7 +29,7 @@
             $ejecutar = mysqli_query($conexion, $insert);
 
             if ($ejecutar) {
-                echo "Usuario Registrado";
+                echo "Gracias por estar interesado en nosotros, estaremos en contacto! ";
             }else{
                 echo "A ocurrido un error en la base de datos";
             };

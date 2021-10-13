@@ -44,9 +44,6 @@
 </head>
 
 <body>
-    <div id="Resultado">
-
-    </div>
     <form action="" method="post">
         <section class="h-100 h-custom" style="background-color: #8fc4b7;">
             <div class="container py-5 h-100">
@@ -84,9 +81,15 @@
                                         <div class="col-md-6 mb-4">
 
                                             <select id="Pais" class="form-select" name="Pais" >
-                                               <option id= "Pais"value=""></option>
+                                               <option value="Colombia">Colombia</option>
+                                               <option value="Brasil" class="">Brasil</option>
+                                               <option value="Venezuela" class="">Venezuela</option>
+                                               <option value="España" class="">España</option>
+                                               <option value="Argentina" class="">Argentina</option>
+                                               <option value="Ecuador" class="">Ecuador</option>
                                               
                                             </select>
+                                            <div id="Resultado"></div>
 
                                         </div>
                                     </div>
