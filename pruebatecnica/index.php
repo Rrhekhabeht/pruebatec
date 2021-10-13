@@ -1,5 +1,21 @@
 <?php
  include "funciones/Conexion.php";
+
+ $url = 'http://country.io/names.json';
+
+	$curlSession = curl_init();
+	curl_setopt($curlSession, CURLOPT_URL, $url);
+	curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+	curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+
+	$jsonData = json_decode(curl_exec($curlSession));
+	curl_close($curlSession);
+	
+	$buffer ='<select name="pais" id="Pais">';
+	foreach($jsonData as $key => $name){
+		$buffer .='<option value="'.$key.'">'.$key.' - '.$name.'</option>';
+	}
+	$buffer .= '</select>';	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -80,15 +96,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
 
-                                            <select id="Pais" class="form-select" name="Pais" >
-                                               <option value="Colombia">Colombia</option>
-                                               <option value="Brasil" class="">Brasil</option>
-                                               <option value="Venezuela" class="">Venezuela</option>
-                                               <option value="España" class="">España</option>
-                                               <option value="Argentina" class="">Argentina</option>
-                                               <option value="Ecuador" class="">Ecuador</option>
-                                              
-                                            </select>
+                                        <?=$buffer?>
                                             <div id="Resultado"></div>
 
                                         </div>
